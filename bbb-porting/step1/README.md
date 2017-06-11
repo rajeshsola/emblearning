@@ -1,3 +1,4 @@
+
 # Simple Steps for the first boot
 
 Choose a suitable directory, say eworkdir under your home directory, we'll refer it as ~/eworkdir from now onwards
@@ -118,4 +119,3 @@ Custom kernel and rootfs on second part of SD card.
 Loading kernel image, dtb file, initrd.img via TFTP from Host PC
 
 Auto boot with custom kernel using uEnv command
-
