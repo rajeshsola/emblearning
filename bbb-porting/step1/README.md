@@ -53,7 +53,50 @@ make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- zImage modules dtbs
 
 Locate arch/arm/boot/zImage,arch/arm/boot/dts/am335x-boneblack.dtb w.r.t KSRC and copy them to a temporary directory say ~/eworkdir/deploy
 
-
 ## Preparing rootfs
 
+You may use bbrootfs.img prepared based on yocto rootfs  initially 
+
+(or)
+
+Prepare your own image based the downloaded tarball core-image-minimal-beaglebone.tar.bz2 from https://downloads.yoctoproject.org/releases/yocto/yocto-2.2/machines/beaglebone/ as follows, you may replace v2.2 with desired version
+
+dd if=/dev/zero of=myrootfs.img bs=1M count=32
+
+mkfs.ext4 myrootfs.img                           #sudo
+
+mkdir /mnt/image        #one time                #sudo
+
+mount -o loop,rw,sync myrootfs.img /mnt/image    #sudo
+
+tar -jxvf core-image-minimal-beaglebone.tar.bz2 -C /mnt/image
+
+echo "SUBSYSTEM=="tty", ATTR{uartclk}!="0", KERNEL=="ttyS[0-9]", SYMLINK+="ttyO%n" > /mnt/image/etc/udev/rules.d/60-omap-tty.rules
+
+i.e. add echo "SUBSYSTEM=="tty", ATTR{uartclk}!="0", KERNEL=="ttyS[0-9]", SYMLINK+="ttyO%n" to /etc/udev/rules.d/60-omap-tty.rules 
+
+umount /mnt/image
+
 ## Your First Boot
+
+Install minicom on host computer
+
+Conenct TTL cable conenctors with debug port of target with following configuration
+
+1-Black(Ground), 4-Green(Rx), 5-White(Tx), leave red conenctor open which is Vcc
+
+Copy zImage, am335x-boneblack.dtb, bbrootfs.img or myrootfs.img on 1st part of SD card
+
+Stop the autoboot thru minicom to enter u-boot console
+
+mmcinfo
+mmc dev 0
+fatls mmc 0:1
+fatload mmc 0:1 0x88080000 bbrootfs.img
+#note down size
+fatload mmc 0:1 0x82000000 zImage
+fatload mmc 0:1 0x88000000 am335x-boneblack.dtb
+setenv bootargs 'console=ttyO0,115200n8 root=/dev/ram0 rw initrd=0x88080000,<size>'
+bootz 0x82000000 - 0x88000000
+
+Let's celebrate your first boot if you are fortunate enough!!
