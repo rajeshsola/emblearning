@@ -14,7 +14,7 @@ Remove any other external storage devices from Host to be on safer side
 
 `fdisk -l`                           #locate the active partitions on the SD card in the form of /dev/sdb*
 
-# identify any partitions of SD card are mounted using mount command and unmount each manually(dont use eject or safely remove options)
+#identify any partitions of SD card are mounted using mount command and unmount each manually(dont use eject or safely remove options)
 
 `mount`
 
@@ -22,7 +22,7 @@ Remove any other external storage devices from Host to be on safer side
 
 `xzcat BBB-eMMC-flasher-debian-8.8-console-armhf-2017-06-08-2gb.img.xz > /dev/sdb`
 
-# Now remove the card using eject or safely remove options and connecte to BBB target
+#Now remove the card using eject or safely remove options and connecte to BBB target
 
 Power on the board and observe the blinky pattern, remove the power and SD card when blink pattern changes
 
