@@ -6,7 +6,7 @@
 As better maintained toolchains are available for 64 bit architecture,Download and extract gcc-linaro-4.9.4-2017.01-x86_64_arm-linux-gnueabihf.tar.xz from https://releases.linaro.org/components/toolchain/binaries/4.9-2017.01/arm-linux-gnueabihf/, follow the same steps to set the PATH as discussed in [First Steps](01-simple.md)
  
 ### Other versions of toolchain
-Even though above versions are recommended initial work, you are free to choose a toolchain based on any gcc version, say v6.2.x available from https://releases.linaro.org/components/toolchain/binaries/ and keep getting updated time to time.Toolchain version used by Robert C Nelson's script can be a better choice!!
+Even though above versions are recommended initial work, you are free to choose a toolchain based on any gcc version, say v6.2.x available from https://releases.linaro.org/components/toolchain/binaries/ and keep getting updated time to time.Toolchain version used by Robert C Nelson's script can be a better hint,which can be more compatible with for chosen kernel versions!!
 
 ### Toolchain location
   You can place the toolchain in /opt instead of ~/eworkdir, in such case /opt/gcc-linraro-4.9 to be add to PATH variable,you may ignore this step initially!!
@@ -61,7 +61,7 @@ May enable OMAP Serial optionally, skip initially
 
 ## Preparing rootfs
 
-### Making story of bbrootfs.img
+### Making story of myootfs.img
 
 Prepare your own image based the downloaded tarball core-image-minimal-beaglebone.tar.bz2 from https://downloads.yoctoproject.org/releases/yocto/yocto-2.2/machines/beaglebone/ as follows, you may replace v2.2 with desired version
 
