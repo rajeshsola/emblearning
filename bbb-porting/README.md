@@ -19,3 +19,8 @@ Kernel image -- uImage or zImage
 Device tree blob(dtb) file
 
 Rootfs/initrd image (optional)
+
+[First Steps](parrt1-first-steps)
+
+[Cross Building](parrt2-cross-building)
+
