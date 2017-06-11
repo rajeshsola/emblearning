@@ -58,17 +58,20 @@ follow [expert](02-expert.md) for the making story behind myrootfs.img
 ## Your First Boot
 
 Install minicom on host computer, and configure it with device port of conencted TTL cable,typically `/dev/ttyUSB0` and `1152008N1` configuration,here are some hints to configure minicom.
+
 `minicom -s`
 
-_Serial port setup_
+**Serial port setup**
 
-*hit A to change device file name, hit enter*
+**hit A to change device file name, hit enter**
 
-*hit E to change other baud rate settings using suitable key strokes, hit Enter*
+**hit E to change other baud rate settings using suitable key strokes, hit Enter**
 
-*Save setup as dfl*
+**Save setup as dfl**
 
-and run `minicom` without -s option now
+and run `minicom` without -s option now (or) if minicom is already running use `ctrl+a o` to open the settings
+
+You can use `ctrl+a q` to quit from minicom at any time.
 
 Conenct TTL cable conenctors with debug port of target with following configuration
 
