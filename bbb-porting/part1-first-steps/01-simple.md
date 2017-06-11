@@ -21,11 +21,11 @@ eg:-
 
 `vi ~/.bashrc  #add above command at end of this file`
 
-These steps are assuming that you are using 32 bit system for Host, follow [expert](expert.md) steps for 64 bit Host machine and betetr location for the toolchain
+These steps are assuming that you are using 32 bit system for Host, follow [expert](02-expert.md) steps for 64 bit Host machine and betetr location for the toolchain
 
 ## Building the kernel
 
-Extract the given tar ball with kernel source in workdir, i.e. ~/eworkdir, follow [expert](expert.md) steps for the making story behind KERNEL source
+Extract the given tar ball with kernel source in workdir, i.e. ~/eworkdir, follow [expert](02-expert.md) steps for the making story behind KERNEL source
 
 `tar -zxvf KERNEL.tar.gz -C ~/eworkdir`
 
@@ -35,7 +35,7 @@ Follow these steps for custom building of kernel source for the target
 
 `make ARCH=arm mrproper`
 
-`#copy config-4.9.0-step1 as .config in KSRC` follow [expert](expert.md) steps for the making story behind config file
+`#copy config-4.9.0-step1 as .config in KSRC` follow [expert](02-expert.md) steps for the making story behind config file
 
 `make ARCH=arm menuconfig`   #for further changes may skip initially
 
@@ -77,5 +77,5 @@ Stop the autoboot thru minicom to enter u-boot console
 
 `bootz 0x82000000 - 0x88000000`
 
-Please follow [booting methods](booting-methods.md) for alternative methods on booting the board
+Please follow [booting methods](03-booting-methods.md) for alternative methods on booting the board
 
