@@ -61,13 +61,13 @@ Install minicom on host computer, and configure it with device port of conencted
 
 `minicom -s`
 
-**Serial port setup**
+> Serial port setup
 
-**hit A to change device file name, hit enter**
+> hit A to change device file name, hit enter
 
-**hit E to change other baud rate settings using suitable key strokes, hit Enter**
+> hit E to change other baud rate settings using suitable key strokes, hit Enter
 
-**Save setup as dfl**
+> Save setup as dfl
 
 and run `minicom` without -s option now (or) if minicom is already running use `ctrl+a o` to open the settings
 
