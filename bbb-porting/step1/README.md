@@ -24,7 +24,11 @@ Update PATH with new binaries in ~/eworkdir/gcc-linaro-6.2.1/bin as follows
 export PATH=$HOME/eworkdir/gcc-linaro-6.2.1/bin:$PATH
 
 The above setting is temporary and applicable to current shell only, add this to ~/.bashrc or ~/.bash_profile to take
-this setting effective for every launch of new shell(~/.bashrc) or every login(~/.bash_profile)
+this setting effective for every launch of new shell(~/.bashrc) or every login(~/.bash_profile
+
+After slight experience you can place the toolchain in /opt instead of ~/eworkdir, in such case /opt/gcc-linraro-6.2.1 to be add to PATH variable
+export PATH=/opt/gcc-linaro-6.2.1/bin:$PATH
+and update to .bashrc or .bash_profile as usual.
 
 ## Building the kernel
 
