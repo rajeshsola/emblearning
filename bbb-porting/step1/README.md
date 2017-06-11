@@ -35,6 +35,25 @@ and update to .bashrc or .bash_profile as usual.
 
 ## Building the kernel
 
+Extract the given tar ball with kernel source in workdir, i.e. ~/eworkdir
+
+tar -zxvf KERNEL.tar.gz -C ~/eworkdir
+
+Let's call the extracted kernel source, i.e. ~/eworkdir/KERNEL as KSRC from now onwards
+
+Follow these steps for custom building of kernel source for the target
+
+make ARCH=arm mrproper
+
+#copy config-4.9.0-step1 as .config in KSRC
+
+make ARCH=arm menuconfig   #for further changes may skip initially
+
+make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- zImage modules dtbs
+
+Locate arch/arm/boot/zImage,arch/arm/boot/dts/am335x-boneblack.dtb w.r.t KSRC and copy them to a temporary directory say ~/eworkdir/deploy
+
+
 ## Preparing rootfs
 
 ## Your First Boot
