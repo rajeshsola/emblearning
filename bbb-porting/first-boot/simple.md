@@ -16,14 +16,14 @@ Update PATH with new binaries in ~/eworkdir/gcc-linaro-6.2.1/bin as follows
 
 `export PATH=$HOME/eworkdir/gcc-linaro-6.2.1/bin:$PATH`
 
-The above setting is temporary and applicable to current shell only, add this to ~/.bashrc or ~/.bash_profile to take
-this setting effective for every launch of new shell(~/.bashrc) or every login(~/.bash_profile
+The above setting is temporary and applicable to current shell only, add this to .bashrc or .bash_profile in your home directory to take this setting effective for every launch of new shell(.bashrc) or every login(.bash_profile)
+eg:-  `vi ~/.bashrc  #add above command at end of this file`
 
-Assuming you are using 32 bit system, follow [expert](expert.md) steps for 64 bit systems and betetr location for the toolchain
+These steps are assuming that you are using 32 bit system for Host, follow [expert](expert.md) steps for 64 bit Host machine and betetr location for the toolchain
 
 ## Building the kernel
 
-Extract the given tar ball with kernel source in workdir, i.e. ~/eworkdir, follow [expert](expert.md) for the making story behind KERNEL source
+Extract the given tar ball with kernel source in workdir, i.e. ~/eworkdir, follow [expert](expert.md) steps for the making story behind KERNEL source
 
 `tar -zxvf KERNEL.tar.gz -C ~/eworkdir`
 
@@ -33,7 +33,7 @@ Follow these steps for custom building of kernel source for the target
 
 `make ARCH=arm mrproper`
 
-#copy config-4.9.0-step1 as .config in KSRC, follow [expert](expert.md) for the making story behind config file
+`#copy config-4.9.0-step1 as .config in KSRC` follow [expert](expert.md) steps for the making story behind config file
 
 `make ARCH=arm menuconfig`   #for further changes may skip initially
 
