@@ -4,24 +4,24 @@ Choose a suitable directory, say eworkdir under your home directory, we'll refer
 
 ## Prepare the pre built toolchain
 
-Extract gcc-linaro-6.2.1-2016.11-i686_arm-linux-gnueabihf.tar.xz in ~/eworkdir
+Extract gcc-linaro-arm-linux-gnueabihf-4.9-2014.09_linux.tar.xz in ~/eworkdir
 
-`tar -xvf gcc-linaro-6.2.1-2016.11-i686_arm-linux-gnueabihf.tar.xz`
+`tar -xvf gcc-linaro-arm-linux-gnueabihf-4.9-2014.09_linux.tar.xz`
 
 You may rename to short convenient name
 
-`mv gcc-linaro-6.2.1-2016.11-x86_64_arm-linux-gnueabihf gcc-linaro-6.2.1`
+`mv gcc-linaro-arm-linux-gnueabihf-4.9-2014.09_linux.tar.xz gcc-linaro-4.9`
 
-Update PATH with new binaries in ~/eworkdir/gcc-linaro-6.2.1/bin as follows
+Update PATH with new binaries in ~/eworkdir/gcc-linaro-4.9/bin as follows
 
-`export PATH=$HOME/eworkdir/gcc-linaro-6.2.1/bin:$PATH`
+`export PATH=$HOME/eworkdir/gcc-linaro-4.9/bin:$PATH`
 
 The above setting is temporary and applicable to current shell only, add this to .bashrc or .bash_profile in your home directory to take this setting effective for every launch of new shell(.bashrc) or every login(.bash_profile)
 eg:-  
 
 `vi ~/.bashrc  #add above command at end of this file`
 
-These steps are assuming that you are using 32 bit system for Host, follow [expert](02-expert.md) steps for 64 bit Host machine and betetr location for the toolchain
+These steps are assuming that you are using 32 bit system for Host, follow [expert](02-expert.md) steps for 64 bit Host machine and betetr location,other versions of the toolchain
 
 ## Building the kernel
 
