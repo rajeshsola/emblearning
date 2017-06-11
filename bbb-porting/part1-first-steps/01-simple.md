@@ -1,6 +1,6 @@
 # Simple Steps for the first boot
 
-Choose a suitable directory for current work, say eworkdir under your home directory, we'll refer it as ~/eworkdir from now onwards
+Choose a suitable directory for current work, say eworkdir under your home directory, we'll refer `~/eworkdir` as our workdir from now onwards
 
 ## Prepare the pre built toolchain
 
@@ -57,31 +57,38 @@ follow [expert](02-expert.md) for the making story behind myrootfs.img
 
 ## Your First Boot
 
-Install minicom on host computer
+Install minicom on host computer, and configure it with device port of conencted TTL cable,typically `/dev/ttyUSB0` and `1152008N1` configuration,here are some hints to configure minicom.
+`minicom -s`
+
+_Serial port setup_
+
+*hit A to change device file name, hit enter*
+
+*hit E to change other baud rate settings using suitable key strokes, hit Enter*
+
+*Save setup as dfl*
+
+and run `minicom` without -s option now
 
 Conenct TTL cable conenctors with debug port of target with following configuration
 
 1-Black(Ground), 4-Green(Rx), 5-White(Tx), leave red conenctor open which is Vcc
 
-Copy zImage, am335x-boneblack.dtb, bbrootfs.img or myrootfs.img on 1st part of SD card
+Copy zImage, am335x-boneblack.dtb, bbrootfs.img or myrootfs.img to the 1st partition of SD card from `~/eworkdir/deploy`
 
-Stop the autoboot thru minicom to enter u-boot console
+Now power on the board and stop the autoboot thru minicom by hitting any key within few seconds to enter u-boot console
 
-To check the presence of SD card and basic information
-
-`mmcinfo`
+`mmcinfo`  To check the presence of SD card and basic information
 
 `mmc dev 0`
 
-For listing of contents in first partition of SD card
+`fatls mmc 0:1` For listing of contents in first partition of SD card
 
-`fatls mmc 0:1`
+`fatload mmc 0:1 0x88080000 myrootfs.img` note down the size of rootfs,33554432 for myrootfs.img,loading rootfs image as initrd
 
-`fatload mmc 0:1 0x88080000 myrootfs.img` #note down the size of rootfs,33554432 for myrootfs.img
+`fatload mmc 0:1 0x82000000 zImage` Loading kernel image from SD card to RAM
 
-`fatload mmc 0:1 0x82000000 zImage`
-
-`fatload mmc 0:1 0x88000000 am335x-boneblack.dtb`
+`fatload mmc 0:1 0x88000000 am335x-boneblack.dtb` Loading dtb file
 
 `setenv bootargs 'console=ttyO0,115200n8 root=/dev/ram0 rw initrd=0x88080000,33554432'` replace size for other rootfs
 
