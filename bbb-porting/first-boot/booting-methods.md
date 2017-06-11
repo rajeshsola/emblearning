@@ -4,8 +4,10 @@
 
 ### Custom kernel and rootfs on second part of eMMC
 
+### Loading kernel image, dtb file, initrd.img via TFTP from Host PC
+
 ### Custom kernel and rootfs on second part of SD card.
 
-### Loading kernel image, dtb file, initrd.img via TFTP from Host PC
+This is most convenient for frequent updations on rootfs
 
 ### Auto boot with custom kernel using uEnv command
