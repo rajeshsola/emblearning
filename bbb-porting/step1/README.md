@@ -90,13 +90,21 @@ Copy zImage, am335x-boneblack.dtb, bbrootfs.img or myrootfs.img on 1st part of S
 Stop the autoboot thru minicom to enter u-boot console
 
 mmcinfo
+
 mmc dev 0
+
 fatls mmc 0:1
+
 fatload mmc 0:1 0x88080000 bbrootfs.img
+
 #note down size
+
 fatload mmc 0:1 0x82000000 zImage
+
 fatload mmc 0:1 0x88000000 am335x-boneblack.dtb
+
 setenv bootargs 'console=ttyO0,115200n8 root=/dev/ram0 rw initrd=0x88080000,<size>'
+
 bootz 0x82000000 - 0x88000000
 
 Let's celebrate your first boot if you are fortunate enough!!
