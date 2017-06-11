@@ -2,15 +2,13 @@ Click [here](00-factory.md) for testing the board with factory image,updating de
 
 # Packages to be collected
 
-Toolchain, preferably from linaro.org
+Prebuilt Toolchain, gcc-linaro-arm-linux-gnueabihf-4.9-2014.09_linux.tar.xz from https://releases.linaro.org/archive/14.09/components/toolchain/binaries/
 
-Kernel source from kernel.org or customized one from experts, 
+Kernel source customized based on https://github.com/RobertCNelson/bb-kernel, KERNEL.tar.gz is hosted in this repository for initial use.
 
-eg:- https://github.com/RobertCNelson/bb-kernel (or) https://github.com/beagleboard/linux
+Configuration file hosted in this repository
 
-Configuration file
-
-Root file system image(.img) or template(tar ball)
+Root file system image(yrootfs.img hosted in this repository) ,rootfs template (tar ball) core-image-minimal-beaglebone.tar.bz2 from http://downloads.yoctoproject.org/releases/yocto/yocto-2.1/machines/beaglebone/
 
 U-Boot source code (optional for beginners)
 
