@@ -8,17 +8,17 @@ Kernel source customized based on https://github.com/RobertCNelson/bb-kernel, KE
 
 Configuration file hosted in this repository
 
-Root file system image(yrootfs.img hosted in this repository) ,rootfs template (tar ball) core-image-minimal-beaglebone.tar.bz2 from http://downloads.yoctoproject.org/releases/yocto/yocto-2.1/machines/beaglebone/
+Root file system image(bbb-rootfs.img hosted in this repository) prepared based on the rootfs template core-image-minimal-beaglebone.tar.bz2 from http://downloads.yoctoproject.org/releases/yocto/yocto-2.1/machines/beaglebone/
 
-U-Boot source code (optional for beginners)
+U-Boot source code (optional for initial work)
 
 # Expected outcome
 
 Kernel image -- uImage or zImage
 
-Device tree blob(dtb) file
+Device tree blob(dtb) file -- am335x-boneblack.dtb
 
-Rootfs/initrd image (optional)
+Rootfs/initrd image (optional) -- bbb-rootfs.img
 
 # First steps towards booting the board
 
