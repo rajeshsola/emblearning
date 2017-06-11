@@ -45,7 +45,7 @@ Locate arch/arm/boot/zImage,arch/arm/boot/dts/am335x-boneblack.dtb w.r.t KSRC an
 
 ## Preparing rootfs
 
-You may use bbrootfs.img prepared based on yocto rootfs  initially 
+You may use myrootfs.img prepared based on yocto rootfs  initially 
 
 follow [expert](02-expert.md) for the making story behind bbrootfs.img
 
@@ -61,13 +61,17 @@ Copy zImage, am335x-boneblack.dtb, bbrootfs.img or myrootfs.img on 1st part of S
 
 Stop the autoboot thru minicom to enter u-boot console
 
+To check the presence of SD card and basic information
+
 `mmcinfo`
 
 `mmc dev 0`
 
+For listing of contents in first partition of SD card
+
 `fatls mmc 0:1`
 
-`fatload mmc 0:1 0x88080000 bbrootfs.img #note down size`
+`fatload mmc 0:1 0x88080000 myrootfs.img #note down size`
 
 `fatload mmc 0:1 0x82000000 zImage`
 
@@ -76,6 +80,8 @@ Stop the autoboot thru minicom to enter u-boot console
 `setenv bootargs 'console=ttyO0,115200n8 root=/dev/ram0 rw initrd=0x88080000,<size>'`
 
 `bootz 0x82000000 - 0x88000000`
+
+Please follow some [expert](02-expert.md) steps on choosing these addresses without collision.
 
 Please follow [booting methods](03-booting-methods.md) for alternative methods on booting the board
 
