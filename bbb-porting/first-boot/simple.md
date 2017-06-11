@@ -17,7 +17,9 @@ Update PATH with new binaries in ~/eworkdir/gcc-linaro-6.2.1/bin as follows
 `export PATH=$HOME/eworkdir/gcc-linaro-6.2.1/bin:$PATH`
 
 The above setting is temporary and applicable to current shell only, add this to .bashrc or .bash_profile in your home directory to take this setting effective for every launch of new shell(.bashrc) or every login(.bash_profile)
-eg:-  `vi ~/.bashrc  #add above command at end of this file`
+eg:-  
+
+`vi ~/.bashrc  #add above command at end of this file`
 
 These steps are assuming that you are using 32 bit system for Host, follow [expert](expert.md) steps for 64 bit Host machine and betetr location for the toolchain
 
@@ -59,21 +61,21 @@ Copy zImage, am335x-boneblack.dtb, bbrootfs.img or myrootfs.img on 1st part of S
 
 Stop the autoboot thru minicom to enter u-boot console
 
-`mmcinfo
+`mmcinfo`
 
-mmc dev 0
+`mmc dev 0`
 
-fatls mmc 0:1
+`fatls mmc 0:1`
 
-fatload mmc 0:1 0x88080000 bbrootfs.img` #note down size
+`fatload mmc 0:1 0x88080000 bbrootfs.img #note down size`
 
-`fatload mmc 0:1 0x82000000 zImage
+`fatload mmc 0:1 0x82000000 zImage`
 
-fatload mmc 0:1 0x88000000 am335x-boneblack.dtb
+`fatload mmc 0:1 0x88000000 am335x-boneblack.dtb`
 
-setenv bootargs 'console=ttyO0,115200n8 root=/dev/ram0 rw initrd=0x88080000,<size>'
+`setenv bootargs 'console=ttyO0,115200n8 root=/dev/ram0 rw initrd=0x88080000,<size>'`
 
-bootz 0x82000000 - 0x88000000`
+`bootz 0x82000000 - 0x88000000`
 
 Please follow [booting methods](booting-methods.md) for alternative methods on booting the board
 
