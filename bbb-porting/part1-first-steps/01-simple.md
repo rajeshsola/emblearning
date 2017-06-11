@@ -21,6 +21,12 @@ eg:-
 
 `vi ~/.bashrc  #add above command at end of this file`
 
+You can verify the toolchain preparation as follows,preferbly launch a new terminal and test this to avoid any mistakes w.r.t PATH updations
+
+`arm-linux-gnueabihf-gcc -v`      should print suitable version, say 4.9.x
+
+`which arm-linux-gnueabihf-gcc`    if any error like command not found re-verify above steps
+
 These steps are assuming that you are using 32 bit system for Host, follow [expert](02-expert.md) steps for 64 bit Host machine and betetr location,other versions of the toolchain
 
 ## Building the kernel
