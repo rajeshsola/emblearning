@@ -4,8 +4,6 @@ Choose a suitable directory, say eworkdir under your home directory, we'll refer
 
 ## Prepare the pre built toolchain
 
-### For 32 bit systems:-
-
 Extract gcc-linaro-6.2.1-2016.11-i686_arm-linux-gnueabihf.tar.xz in ~/eworkdir
 
 tar -xvf gcc-linaro-6.2.1-2016.11-i686_arm-linux-gnueabihf.tar.xz
@@ -21,9 +19,11 @@ export PATH=$HOME/eworkdir/gcc-linaro-6.2.1/bin:$PATH
 The above setting is temporary and applicable to current shell only, add this to ~/.bashrc or ~/.bash_profile to take
 this setting effective for every launch of new shell(~/.bashrc) or every login(~/.bash_profile
 
+Assuming you are using 32 bit system, follow [expert](expert.md) steps for 64 bit systems and betetr location for the toolchain
+
 ## Building the kernel
 
-Extract the given tar ball with kernel source in workdir, i.e. ~/eworkdir
+Extract the given tar ball with kernel source in workdir, i.e. ~/eworkdir, follow [expert](expert.md) for the making story behind KERNEL source
 
 tar -zxvf KERNEL.tar.gz -C ~/eworkdir
 
@@ -33,7 +33,7 @@ Follow these steps for custom building of kernel source for the target
 
 make ARCH=arm mrproper
 
-#copy config-4.9.0-step1 as .config in KSRC
+#copy config-4.9.0-step1 as .config in KSRC, follow [expert](expert.md) for the making story behind config file
 
 make ARCH=arm menuconfig   #for further changes may skip initially
 
@@ -44,6 +44,8 @@ Locate arch/arm/boot/zImage,arch/arm/boot/dts/am335x-boneblack.dtb w.r.t KSRC an
 ## Preparing rootfs
 
 You may use bbrootfs.img prepared based on yocto rootfs  initially 
+
+follow [expert](expert.md) for the making story behind bbrootfs.img
 
 ## Your First Boot
 
@@ -74,3 +76,6 @@ fatload mmc 0:1 0x88000000 am335x-boneblack.dtb
 setenv bootargs 'console=ttyO0,115200n8 root=/dev/ram0 rw initrd=0x88080000,<size>'
 
 bootz 0x82000000 - 0x88000000
+
+Please follow [booting methods](booting-methods.md) for alternative methods on booting the board
+
