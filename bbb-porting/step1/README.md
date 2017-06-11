@@ -1,4 +1,4 @@
-# Simple Steps to prepare the expected outcome
+# Simple Steps for the first boot
 
 Choose a suitable directory, say eworkdir under your home directory, we'll refer it as ~/eworkdir from now onwards
 
@@ -108,3 +108,14 @@ setenv bootargs 'console=ttyO0,115200n8 root=/dev/ram0 rw initrd=0x88080000,<siz
 bootz 0x82000000 - 0x88000000
 
 Let's celebrate your first boot if you are fortunate enough!!
+
+## Let's try these alternate methods....
+
+Custom kernel and rootfs on second part of eMMC
+
+Custom kernel and rootfs on second part of SD card.
+
+Loading kernel image, dtb file, initrd.img via TFTP from Host PC
+
+Auto boot with custom kernel using uEnv command
+
