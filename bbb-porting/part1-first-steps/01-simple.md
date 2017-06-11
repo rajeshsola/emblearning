@@ -53,7 +53,7 @@ Locate arch/arm/boot/zImage,arch/arm/boot/dts/am335x-boneblack.dtb w.r.t KSRC an
 
 You may use myrootfs.img prepared based on yocto rootfs  initially 
 
-follow [expert](02-expert.md) for the making story behind bbrootfs.img
+follow [expert](02-expert.md) for the making story behind myrootfs.img
 
 ## Your First Boot
 
@@ -77,13 +77,13 @@ For listing of contents in first partition of SD card
 
 `fatls mmc 0:1`
 
-`fatload mmc 0:1 0x88080000 myrootfs.img #note down size`
+`fatload mmc 0:1 0x88080000 myrootfs.img` #note down the size of rootfs,33554432 for myrootfs.img
 
 `fatload mmc 0:1 0x82000000 zImage`
 
 `fatload mmc 0:1 0x88000000 am335x-boneblack.dtb`
 
-`setenv bootargs 'console=ttyO0,115200n8 root=/dev/ram0 rw initrd=0x88080000,<size>'`
+`setenv bootargs 'console=ttyO0,115200n8 root=/dev/ram0 rw initrd=0x88080000,33554432'` replace size for other rootfs
 
 `bootz 0x82000000 - 0x88000000`
 
