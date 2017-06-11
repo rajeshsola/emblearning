@@ -1,6 +1,6 @@
 # Simple Steps for the first boot
 
-Choose a suitable directory, say eworkdir under your home directory, we'll refer it as ~/eworkdir from now onwards
+Choose a suitable directory for current work, say eworkdir under your home directory, we'll refer it as ~/eworkdir from now onwards
 
 ## Prepare the pre built toolchain
 
@@ -35,7 +35,7 @@ Extract the given tar ball with kernel source in workdir, i.e. ~/eworkdir, follo
 
 `tar -zxvf KERNEL.tar.gz -C ~/eworkdir`
 
-Let's call the extracted kernel source, i.e. ~/eworkdir/KERNEL as KSRC from now onwards
+Let's call the extracted kernel source, i.e. `~/eworkdir/KERNEL` as KSRC from now onwards
 
 Follow these steps for custom building of kernel source for the target
 
@@ -47,7 +47,7 @@ Follow these steps for custom building of kernel source for the target
 
 `make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- zImage modules dtbs`
 
-Locate arch/arm/boot/zImage,arch/arm/boot/dts/am335x-boneblack.dtb w.r.t KSRC and copy them to a temporary directory say ~/eworkdir/deploy
+Locate `arch/arm/boot/zImage`,`arch/arm/boot/dts/am335x-boneblack.dtb` w.r.t KSRC and copy them to a temporary directory say `~/eworkdir/deploy`
 
 ## Preparing rootfs
 
