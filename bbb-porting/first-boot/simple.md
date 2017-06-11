@@ -6,15 +6,15 @@ Choose a suitable directory, say eworkdir under your home directory, we'll refer
 
 Extract gcc-linaro-6.2.1-2016.11-i686_arm-linux-gnueabihf.tar.xz in ~/eworkdir
 
-tar -xvf gcc-linaro-6.2.1-2016.11-i686_arm-linux-gnueabihf.tar.xz
+`tar -xvf gcc-linaro-6.2.1-2016.11-i686_arm-linux-gnueabihf.tar.xz`
 
 You may rename to short convenient name
 
-mv gcc-linaro-6.2.1-2016.11-x86_64_arm-linux-gnueabihf gcc-linaro-6.2.1
+`mv gcc-linaro-6.2.1-2016.11-x86_64_arm-linux-gnueabihf gcc-linaro-6.2.1`
 
 Update PATH with new binaries in ~/eworkdir/gcc-linaro-6.2.1/bin as follows
 
-export PATH=$HOME/eworkdir/gcc-linaro-6.2.1/bin:$PATH
+`export PATH=$HOME/eworkdir/gcc-linaro-6.2.1/bin:$PATH`
 
 The above setting is temporary and applicable to current shell only, add this to ~/.bashrc or ~/.bash_profile to take
 this setting effective for every launch of new shell(~/.bashrc) or every login(~/.bash_profile
@@ -25,19 +25,19 @@ Assuming you are using 32 bit system, follow [expert](expert.md) steps for 64 bi
 
 Extract the given tar ball with kernel source in workdir, i.e. ~/eworkdir, follow [expert](expert.md) for the making story behind KERNEL source
 
-tar -zxvf KERNEL.tar.gz -C ~/eworkdir
+`tar -zxvf KERNEL.tar.gz -C ~/eworkdir`
 
 Let's call the extracted kernel source, i.e. ~/eworkdir/KERNEL as KSRC from now onwards
 
 Follow these steps for custom building of kernel source for the target
 
-make ARCH=arm mrproper
+`make ARCH=arm mrproper`
 
 #copy config-4.9.0-step1 as .config in KSRC, follow [expert](expert.md) for the making story behind config file
 
-make ARCH=arm menuconfig   #for further changes may skip initially
+`make ARCH=arm menuconfig`   #for further changes may skip initially
 
-make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- zImage modules dtbs
+`make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- zImage modules dtbs`
 
 Locate arch/arm/boot/zImage,arch/arm/boot/dts/am335x-boneblack.dtb w.r.t KSRC and copy them to a temporary directory say ~/eworkdir/deploy
 
@@ -59,23 +59,21 @@ Copy zImage, am335x-boneblack.dtb, bbrootfs.img or myrootfs.img on 1st part of S
 
 Stop the autoboot thru minicom to enter u-boot console
 
-mmcinfo
+`mmcinfo
 
 mmc dev 0
 
 fatls mmc 0:1
 
-fatload mmc 0:1 0x88080000 bbrootfs.img
+fatload mmc 0:1 0x88080000 bbrootfs.img` #note down size
 
-#note down size
-
-fatload mmc 0:1 0x82000000 zImage
+`fatload mmc 0:1 0x82000000 zImage
 
 fatload mmc 0:1 0x88000000 am335x-boneblack.dtb
 
 setenv bootargs 'console=ttyO0,115200n8 root=/dev/ram0 rw initrd=0x88080000,<size>'
 
-bootz 0x82000000 - 0x88000000
+bootz 0x82000000 - 0x88000000`
 
 Please follow [booting methods](booting-methods.md) for alternative methods on booting the board
 
