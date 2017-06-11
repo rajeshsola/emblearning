@@ -73,9 +73,17 @@ and run `minicom` without -s option now (or) if minicom is already running use `
 
 You can use `ctrl+a q` to quit from minicom at any time.
 
-Conenct TTL cable conenctors with debug port of target with following configuration
+Conenct TTL cable conenctors with debug port of target as mentioned in http://elinux.org/Beagleboard:BeagleBone_Black_Serial 
 
-1-Black(Ground), 4-Green(Rx), 5-White(Tx), leave red conenctor open which is Vcc
+Here is an example for Adafruit cables based on PL23xx chipset
+
+> Pin 1(GND) - Black(GND)
+
+> Pin 4(Rx)  - Green(Tx)
+
+> Pin 5(Tx)  - White(Rx)
+
+> Leave red conenctor open which is Vcc
 
 Copy zImage, am335x-boneblack.dtb, bbrootfs.img or myrootfs.img to the 1st partition of SD card from `~/eworkdir/deploy`
 
