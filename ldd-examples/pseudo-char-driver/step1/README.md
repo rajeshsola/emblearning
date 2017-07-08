@@ -6,4 +6,8 @@ cat /proc/devices
 
 dmesg | grep pseudo
 
-[Click Here](psample.c) for the code.
+### code
+
+[psample.c](psample.c)
+
+[Makefile](Makefile)
