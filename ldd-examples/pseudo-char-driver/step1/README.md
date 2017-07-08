@@ -20,8 +20,10 @@ Remove the device node manually on unloading the module
 
 `rm /dev/psample`
 
-### code
+---
 
-[psample.c](https://github.com/rajeshsola/emblearning/tree/master/ldd-examples/pseudo-char-driver/step1/psample.c)
+> code
 
-[Makefile](https://github.com/rajeshsola/emblearning/tree/master/ldd-examples/pseudo-char-driver/step1/Makefile)
+> [psample.c](https://github.com/rajeshsola/emblearning/tree/master/ldd-examples/pseudo-char-driver/step1/psample.c)
+
+> [Makefile](https://github.com/rajeshsola/emblearning/tree/master/ldd-examples/pseudo-char-driver/step1/Makefile)
