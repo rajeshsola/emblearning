@@ -4,6 +4,9 @@ Check the current log level
 
 `cat /proc/sys/kernel/printk`
 
+You can observe the output with four indicators as follows,representing current,default,min,max log levels.
+`4    4     1     7`
+
 Change the log level as 
 
 `dmesg -n 6`
