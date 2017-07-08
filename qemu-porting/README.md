@@ -1,11 +1,7 @@
 # Cross Compiling Linux Kernel, Apps for Qemu based emulation
 
-[part1](part1)
+Content is under updation....please stay tuned
 
-[part2](part2)
-
-[part3](part3)
-
-[part4](part4)
+Please refer https://www.slideshare.net/rajeshsola/hands-on-with-embedded-linux-using-zero-hardware for my earlier slides on qemu porting meanwhile
 
 
