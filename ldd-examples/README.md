@@ -1,4 +1,4 @@
-## Building Custom Kernel, Writin [Simple modules](simple-modules)
+## Building Custom Kernel, Writing [Simple modules](simple-modules)
 
 ## Writing [Pseudo Character Driver](pseudo-char-driver),Step by Step
 
