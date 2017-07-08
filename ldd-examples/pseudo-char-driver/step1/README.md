@@ -4,13 +4,21 @@ Registering char driver and obtaining major number
 
 Compile the above module using given Makefile and load it
 
-`cat /proc/devices`
+`insmod psample.ko`
 
-`dmesg | grep pseudo`
+`dmesg | grep pseudo` _or_ `dmesg | tail`
+
+`cat /proc/devices`
 
 Compare the major number from above two commands, and create the device node manually as follows
 
-`mknod c /dev/pseudo c 250 0`     #assuming assigned major number is 250
+`mknod c /dev/psample c 250 0`     #assuming assigned major number is 250
+
+Remove the device node manually on unloading the module
+
+`rmmod psample`
+
+`rm /dev/psample`
 
 ### code
 
