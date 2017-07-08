@@ -1,4 +1,4 @@
-# Tutorial :: Pseudo Character Driver : Step By Step
+#  Pseudo Character Driver :: Step By Step
 ## [step1](step1)
 Simple skeleton,registering device driver, checking major number and unregistering
 ## [step2](step2)
