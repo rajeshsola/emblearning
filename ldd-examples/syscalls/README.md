@@ -12,7 +12,7 @@ Replace syscall_32.tbl with syscall_64.tbl for 64 bit architecture
 > The location and name of system call table is highly volatile across kernel versions,please do a simple search in
 > kernel source or refer LXR tool once before proceeding
 
-Add the definition of sys_testcall as a static module as follows
+Add the definition of **sys_testcall** as a static module as follows
 
 Create a new directory under **KSRC**, say **kernel/stest** and place **mysycall.c** in it with following code
 ```C
@@ -22,13 +22,15 @@ asmlinkage long sys_testcall(void) //SYSCALL_DEFINE0(testcall)
         return 0;
 }
 ```
-and place a Makefile in stest dir 
+and place a **Makefile** in **stest** subdir with following content
 
 `obj-y += mysyscall.o`
 
-Link the newly created directory to the **Makefile** of parent directory,i.e. in **kernel/Makefile** add following line
+Link the newly created directory to the **Makefile** of parent directory,i.e. in **kernel/Makefile** add the following line
 
-`obj-y += stest`
+`obj-y += stest/`
+
+suitably near the linking of other sub dirs
 
 Optionally add the prototype of your system calls to `include/linux/syscalls.h`
 
