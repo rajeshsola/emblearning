@@ -1,10 +1,16 @@
 ## Adding System Calls to the custom kernel
 
-Add a new entry to system call table in `arch/x86/syscalls/syscall_32.tbl`
+Add a new entry to system call table in `arch/x86/entry/syscalls/syscall_32.tbl`
 
 `350 i386 testcall sys_testcall`
 
-Replace 350 with suitable number in sequence according to your kernel source
+Replace the system call number 350 accordingly as per the sequence in your kernel source
+
+Replace syscall_32.tbl with syscall_64.tbl for 64 bit architecture
+
+> Caution:-
+> The location and name of system call table is highly volatile across kernel versions,please do a simple search in
+> kernel source or refer LXR tool once before proceeding
 
 Add the definition of sys_testcall as a static module as follows
 
