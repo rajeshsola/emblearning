@@ -67,3 +67,4 @@ int main()
    }
 }
 ```
+Build above code, execute once and check the `dmesg` for the *printk* output of newly added system call
