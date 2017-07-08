@@ -4,7 +4,7 @@
 
 ## Getting started with Embedded Linux with Zero Hardware
 
-A [Tutorial](qemu-porting) on cross compiling Linux kernel with device tree approach, boot loader, user space applications for Qemu target and emulating without the need of any target board.
+A [Tutorial](qemu-porting) on cross compiling Linux kernel with device tree approach, boot loader, user space applications for *Versatile Express Reference platform* and emulating using **Qemu** without the need of any target board for initial learning
 
 ## Linux Driver Examples
 
