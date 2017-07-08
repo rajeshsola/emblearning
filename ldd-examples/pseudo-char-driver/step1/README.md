@@ -22,7 +22,7 @@ Remove the device node manually on unloading the module
 
 ---
 
-> code
+_** code **_
 
 > [psample.c](https://github.com/rajeshsola/emblearning/tree/master/ldd-examples/pseudo-char-driver/step1/psample.c)
 
