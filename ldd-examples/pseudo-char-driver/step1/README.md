@@ -2,9 +2,15 @@
 
 Registering char driver and obtaining major number
 
-cat /proc/devices
+Compile the above module using given Makefile and load it
 
-dmesg | grep pseudo
+`cat /proc/devices`
+
+`dmesg | grep pseudo`
+
+Compare the major number from above two commands, and create the device node manually as follows
+
+`mknod c /dev/pseudo c 250 0`     #assuming assigned major number is 250
 
 ### code
 
