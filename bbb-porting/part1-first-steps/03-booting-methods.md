@@ -10,11 +10,19 @@ This is convinient for initial testing and eliminating the use of accessories li
 
 ### Custom kernel and rootfs on second part of eMMC
 
-This is convenient to test your custom kernel against factory rootfs in eMMC with well defined utilities.
+If you don't have a rootfs image initially,this is convenient to test your custom kernel against factory rootfs in eMMC with well defined utilities, For this set the boot parameters as follows
+
+`setenv bootargs 'console=ttyO0,115200n8 root=/dev/mmcblk0p2 rw rootfstype=ext4 rootwait` assuming  no SD card is present
 
 ### Custom kernel and rootfs on second part of SD card.
 
-This is most convenient for frequent updations on rootfs
+This is most convenient for frequent updations on rootfs, for this extract the contents of rootfs image into 2nd part of SD card and set the boot params as follows
+
+`setenv bootargs 'console=ttyO0,115200n8 root=/dev/mmcblk0p2 rw rootfstype=ext4 rootwait`
+
+Note:- 1.If SD card is connected to the board, SD card partitions are probed as /dev/mmcblk0p1, /dev/mmcblk0p2 and eMMC partitions are probed as /dev/mmcblk1boot, /dev/mmcblk1p2.
+       2.When there is no SD card is connected, /dev/mmcblk0p1,/dev/mmcblk0p2 represents eMMC partitions.
+       3.Best way to ensure above device file names, boot the target once with factory kernel(auto boot) and check the entries in /dev directory.
 
 ### Working with uImage instead of zImage
 
