@@ -76,6 +76,7 @@ Prepare your own image based the downloaded tarball core-image-minimal-beaglebon
 `sudo tar -jxvf core-image-minimal-beaglebone.tar.bz2 -C /mnt/image`
 
 `sudo echo "SUBSYSTEM=="tty", ATTR{uartclk}!="0", KERNEL=="ttyS[0-9]", \`
+
     `SYMLINK+="ttyO%n" > /mnt/image/etc/udev/rules.d/60-omap-tty.rules`
 
 i.e. add echo "SUBSYSTEM=="tty", ATTR{uartclk}!="0", KERNEL=="ttyS[0-9]", SYMLINK+="ttyO%n" to /etc/udev/rules.d/60-omap-tty.rules , this is due to naming of debug port across kernel versions,some intermediate versions refer the serial debug port as /dev/ttyO2 ,where as recent versions again referring it as /dev/ttyS2, a symlink fix can work for all versions.
