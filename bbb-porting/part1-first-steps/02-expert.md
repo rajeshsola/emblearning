@@ -65,21 +65,21 @@ May enable OMAP Serial optionally, skip initially
 
 Prepare your own image based the downloaded tarball core-image-minimal-beaglebone.tar.bz2 from https://downloads.yoctoproject.org/releases/yocto/yocto-2.2/machines/beaglebone/ as follows, you may replace v2.2 with desired version
 
-`dd if=/dev/zero of=myrootfs.img bs=1M count=32
+`dd if=/dev/zero of=myrootfs.img bs=1M count=32`
 
-mkfs.ext4 myrootfs.img                           #sudo
+`sudo mkfs.ext4 myrootfs.img`                          
 
-mkdir /mnt/image        #one time                #sudo
+`sudo mkdir /mnt/image`                                #one time           
 
-mount -o loop,rw,sync myrootfs.img /mnt/image    #sudo
+`sudo mount -o loop,rw,sync myrootfs.img /mnt/image`
 
-tar -jxvf core-image-minimal-beaglebone.tar.bz2 -C /mnt/image
+`sudo tar -jxvf core-image-minimal-beaglebone.tar.bz2 -C /mnt/image`
 
-echo "SUBSYSTEM=="tty", ATTR{uartclk}!="0", KERNEL=="ttyS[0-9]", SYMLINK+="ttyO%n" > /mnt/image/etc/udev/rules.d/60-omap-tty.rules`
+`sudo echo "SUBSYSTEM=="tty", ATTR{uartclk}!="0", KERNEL=="ttyS[0-9]", SYMLINK+="ttyO%n" > /mnt/image/etc/udev/rules.d/60-omap-tty.rules`
 
 i.e. add echo "SUBSYSTEM=="tty", ATTR{uartclk}!="0", KERNEL=="ttyS[0-9]", SYMLINK+="ttyO%n" to /etc/udev/rules.d/60-omap-tty.rules , this is due to naming of debug port across kernel versions,some intermediate versions refer the serial debug port as /dev/ttyO2 ,where as recent versions again referring it as /dev/ttyS2, a symlink fix can work for all versions.
 
-`umount /mnt/image`
+`sudo umount /mnt/image`
 
 
 
